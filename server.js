@@ -4,16 +4,16 @@ const app = require('./app')
 const port = process.env.port || 5000
 
 // Database Connection
-const { dbEvents } = require('./src/db/dbConnection')
+// const { dbEvents } = require('./src/db/dbConnection')
 
 // Servidor
-dbEvents.on('connected', () => {
-    console.log('base conectada')
-    app.listen(port, () => {
-        console.log('Servidor On')
-        console.log(`Acesse em http://localhost:${port}`)
-    })
+app.listen(port, () => {
+    console.log('Servidor On')
+    console.log(`Acesse em http://localhost:${port}`)
 })
+// dbEvents.on('connected', () => {
+//     console.log('base conectada')
+// })
 
 
 

@@ -7,6 +7,9 @@ const app = express()
 // Routes
 const routes = require('./src/routes/routes')
 
+// Database Connection
+require('./src/db/dbConnection')
+
 // Middlewares
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
