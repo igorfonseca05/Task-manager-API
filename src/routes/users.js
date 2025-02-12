@@ -53,8 +53,8 @@ const upload = multer({
 })
 
 // Routes
-route.post('/login', authController.signIn)
 route.post('/signup', validator, authController.signUp)
+route.post('/login', authController.signIn)
 route.post('/logout', verifyToken, authController.logout)
 route.post('/logoutAll', verifyToken, authController.logoutAll)
 

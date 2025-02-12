@@ -4,11 +4,18 @@ const request = require('supertest')
 const app = require('../app')
 
 const mongoose = require('mongoose')
+const User = require('../src/model/userModel')
 
+const user = {
+    userName: 'Andre',
+    email: 'andre@gmail.com',
+    password: '123456'
+}
 
-// vai apagar a base de dados depois de cada teste
+// vai apagar a base de dados depois de cada test
 beforeEach(async () => {
-    await mongoose.connection.dropDatabase()
+    await User.deleteMany()
+    await new User(user).save()
 })
 
 afterAll(async () => {
@@ -24,6 +31,10 @@ test('Deve criar conta de usuário', async () => {
     }).expect(201)
 })
 
-// test('Mostrar vaiavel de ambiente', () => {
-//     expect(process.env.DB_URL).toBe('mongodb://127.0.0.1:27017/auth')
-// })
+test('Deve criar conta de usuário', async () => {
+    await request(app).post('/users/login').send({
+        email: 'andre@gmail.com',
+        password: '123456'
+    }).expect(200)
+})
+
