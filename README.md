@@ -12,3 +12,21 @@ O Task Manager é uma API desenvolvida com Node.js e Mongoose, projetada para ge
 ✅ Testes Automatizados: Cobertura de testes para garantir a confiabilidade da API.  
 
 A API é ideal para aplicações que necessitam de um sistema robusto de gerenciamento de tarefas, oferecendo uma base sólida para expansão e personalização conforme as necessidades do projeto.
+
+## Rotas do Projeto
+
+
+
+### Rota users
+A rota **users** deve ser utilizada para cadastro de usuários
+
+POST /users/signup 🌐 (pública)  
+POST /users/login 🌐 (pública)  
+POST /users/logout 🔒  
+POST /users/logoutAll 🔒  
+GET /users/me 🔒  
+PATCH /users/me 🔒  
+DELETE /users/me 🔒  
+POST /users/me/avatar 🔒  
+DELETE /users/me/avatar 🔒  
+
