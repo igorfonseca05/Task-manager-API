@@ -2,10 +2,6 @@ const express = require('express')
 // const multer = require('multer')
 const path = require('path')
 
-// const multer = require('multer')
-// const { CloudinaryStorage } = require('multer-storage-cloudinary')
-// const { v2: cloudinary } = require('cloudinary')
-
 
 const multer = require('multer')
 const { v2: cloudinary } = require('cloudinary')
@@ -22,30 +18,6 @@ const authController = require('../controllers/authController')
 const validator = require('../middlewares/userValidator')
 const verifyToken = require('../middlewares/verifyToken')
 
-
-// Usando multer e cloudinary para uploads de arquivos
-
-
-
-// const upload = multer({
-//     storage,
-//     limits: { fileSize: 1 * 2024 * 1024 },
-//     fileFilter: (req, file, cb) => {
-//         if (file.originalname.match(/\.(png|jpeg|jpg)$/)) {
-//             return cb(null, file)
-//         }
-
-//         cb(new Error('Formato inválido'))
-//     }
-// })
-
-
-
-// cloudinary.config({
-//     cloud_name: process.env.CLOUD_NAME,
-//     api_key: process.env.API_KEY,
-//     api_secret: process.env.API_SECRET
-// })
 
 cloudinary.config({
     cloud_name: process.env.CLOUD_NAME,
