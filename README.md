@@ -19,20 +19,20 @@ A API é ideal para aplicações que necessitam de um sistema robusto de gerenci
 
 O projeto task-manager oferece rotas para serviços de cadastro, gerenciamento de dados pessoais e manipulação de tarefas. As rotas marcadas com 🌐 são públicas, enquanto as marcadas com 🔒 são privadas, sendo necessário o cadastro prévio para acessá-las.
 
-### Rotas de acesso
+### Rotas de acesso 🚀
 
 - **POST:** /users/signup 🌐 (pública) - Cadastra um novo usuário.
 - **POST:** /users/login 🌐 (pública) - Autentica um usuário e fornece um token.
 - **POST:** /users/logout 🔒 - Encerra a sessão do usuário atual.
 - **POST:** /users/logoutAll 🔒 - Encerra todas as sessões do usuário em todos os dispositivos.
 
-### Rotas de acesso aos dados do Usuário
+### Rotas de acesso aos dados do Usuário 👤
 
-- **GET** /users/me 🔒 - Obtém o perfil do usuário autenticado.
-- **PATCH** /users/me 🔒 - Atualiza os dados do usuário autenticado.
-- **DELETE** /users/me 🔒 - Exclui a conta do usuário autenticado.
-- **POST** /users/me/avatar 🔒 - Adiciona uma imagem de perfil ao usuário autenticado.
-- **DELETE** /users/me/avatar 🔒 - Remove a imagem de perfil do usuário autenticado.
+- **GET** /users/profile 🔒 - Obtém o perfil do usuário autenticado.
+- **PATCH** /users/profile 🔒 - Atualiza os dados do usuário autenticado.
+- **DELETE** /users/profile 🔒 - Exclui a conta do usuário autenticado.
+- **POST** /users/profile/photo 🔒 - Adiciona uma imagem de perfil ao usuário autenticado.
+- **DELETE** /users/profile/photo 🔒 - Remove a imagem de perfil do usuário autenticado.
 
 ### Rotas de manipulação de tarefas
 

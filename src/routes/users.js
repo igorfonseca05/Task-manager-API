@@ -66,19 +66,19 @@ route.post('/logoutAll', verifyToken, authController.logoutAll)
  * usuários.
 */
 // Obter perfil de usuário
-route.get('/me', verifyToken, userController.getusers)
+route.get('/profile', verifyToken, userController.getusers)
 
 // atualizar dados
-route.patch('/me', verifyToken, userController.patchUser)
+route.patch('/profile', verifyToken, userController.patchUser)
 
 // excluir conta usuário
-route.delete('/me', verifyToken, userController.deleteUser)
+route.delete('/profile', verifyToken, userController.deleteUser)
 
 // Adicionar imagem de perfil
-route.post('/me/avatar', verifyToken, upload.single('upload'), userController.uploads)
+route.post('/profile/photo', verifyToken, upload.single('upload'), userController.uploads)
 
 // Remover imagem de perfil
-route.delete('/me/avatar', verifyToken, userController.deleteAvatar)
+route.delete('/profile/photo', verifyToken, userController.deleteAvatar)
 
 // Obter imagem de perfil
 // route.get('/:id/avatar', userController.getAvatar)
