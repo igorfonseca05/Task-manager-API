@@ -39,10 +39,14 @@ test('Deve criar conta de usuário', async () => {
 })
 
 test('Deve criar conta de usuário', async () => {
-    await request(app).post('/users/login').send({
+    const res = await request(app).post('/users/login').send({
         email: 'andre@gmail.com',
         password: '123456'
     }).expect(200)
+
+    const userData = await User.findById(user._id)
+
+    expect(res.body.token).toBe(userData.tokens[1].token)
 })
 
 test('Deve buscar dados do usuário na base de dados', async () => {
@@ -68,3 +72,15 @@ test('Não deve deletar o usuário não autenticado', async () => {
         .send()
         .expect(401)
 })
+
+// test("Verificar token do usuário", async () => {
+
+//     const response = await request(app)
+//         .get('/users/profile')
+//         .set('Authorization', `Bearer ${user.tokens[0].token}`)
+//         .send()
+
+//     const userData = await User.findById(user._id)
+//     expect(response.body.token).toBe(userData.tokens[1].token)
+
+// })
