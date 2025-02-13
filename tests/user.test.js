@@ -4,12 +4,19 @@ const request = require('supertest')
 const app = require('../app')
 
 const mongoose = require('mongoose')
+const jwt = require('jsonwebtoken')
 const User = require('../src/model/userModel')
 
+const userId = new mongoose.Types.ObjectId()
+
 const user = {
+    _id: userId,
     userName: 'Andre',
     email: 'andre@gmail.com',
-    password: '123456'
+    password: '123456',
+    tokens: [{
+        token: jwt.sign({ _id: userId }, process.env.JWT_SECRET)
+    }]
 }
 
 // vai apagar a base de dados depois de cada test
@@ -38,3 +45,26 @@ test('Deve criar conta de usuário', async () => {
     }).expect(200)
 })
 
+test('Deve buscar dados do usuário na base de dados', async () => {
+    await request(app)
+        .get('/users/profile')
+        .set('Authorization', `Bearer ${user.tokens[0].token}`)
+        .send()
+        .expect(200)
+})
+
+
+test('Deve deletar o usuário da base de dados', async () => {
+    await request(app)
+        .delete('/users/profile')
+        .set('Authorization', `Bearer ${user.tokens[0].token}`)
+        .send()
+        .expect(200)
+})
+
+test('Não deve deletar o usuário não autenticado', async () => {
+    await request(app)
+        .delete('/users/profile')
+        .send()
+        .expect(401)
+})
