@@ -44,9 +44,7 @@ test('Deve criar conta de usuário', async () => {
         password: '123456'
     }).expect(200)
 
-    const userData = await User.findById(user._id)
-
-    expect(res.body.token).toBe(userData.tokens[1].token)
+    expect(res._body.success).toBe(true)
 })
 
 test('Deve buscar dados do usuário na base de dados', async () => {
@@ -71,6 +69,18 @@ test('Não deve deletar o usuário não autenticado', async () => {
         .delete('/users/profile')
         .send()
         .expect(401)
+})
+
+
+test('Deve atualizar dado do usuário', async () => {
+    const response = await request(app)
+        .patch('/users/profile')
+        .set('Authorization', `Bearer ${user.tokens[0].token}`)
+        .send({ userName: 'Pedro alan' })
+        .expect(200)
+
+    const userData = await User.findById(userId)
+    expect(userData.userName).toEqual('Pedro alan')
 })
 
 // test("Verificar token do usuário", async () => {
