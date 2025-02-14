@@ -6,7 +6,7 @@
 <!--
 ![Static Badge](https://img.shields.io/badge/click-blue__oi-red) -->
 
-<p align="center">Texto centralizado!</p>
+<p align="center" style='color: red'>Texto centralizado!</p>
 
 O Task Manager é uma API desenvolvida com Node.js e Mongoose, projetada para gerenciar tarefas de usuários de forma eficiente. A aplicação inclui recursos essenciais para criação, atualização, exclusão e listagem de tarefas, além de funcionalidades avançadas para segurança e escalabilidade.
 
