@@ -80,9 +80,13 @@ const upload = multer({
     }
 })
 
-// Routes
+
+
+// Rotas públicas
 route.post('/login', authController.signIn)
 route.post('/signup', validator, authController.signUp)
+
+// Rotas privadas
 route.post('/logout', verifyToken, authController.logout)
 route.post('/logoutAll', verifyToken, authController.logoutAll)
 
@@ -93,6 +97,7 @@ route.post('/logoutAll', verifyToken, authController.logoutAll)
  * pois os usuários não devem poder ter acesso as informações de outros
  * usuários.
 */
+
 // Obter perfil de usuário
 route.get('/me', verifyToken, userController.getusers)
 
