@@ -23,8 +23,8 @@ jobs:
         
     # Criei um repositório secreto e configurei variaveis de ambiente 
     env: 
-      DB_URL: ${{secrets.DB_URL}}
-      JWT_SECRET: ${{secrets.JWT_SECRET}}
+      DB_URL: ${{secrets.TASK_API_SECRET_DB_URL}}
+      JWT_SECRET: ${{secrets.TASK_API_SECRET_JWT_SECRET}}
     
     # Passos do workflow 
     steps: 
