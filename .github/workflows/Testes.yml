@@ -1,0 +1,30 @@
+name: Testar rotas API
+
+on: 
+  push: 
+    branches:
+      - main
+
+  pull_request: 
+    branches:
+      - main 
+
+jobs: 
+  test: 
+    runs-on: Ubuntu-latest
+    steps: 
+    - name: Clonar repositório
+      uses: actions/checkout@v3
+
+    - name: Configurar ambiente node
+      uses: actions/setup-node@v3
+      with: 
+        node-version: 18
+
+    - name: Instalar dependencias
+      run: npm install
+
+    - name: Rodar tests
+      run: npm test
+
+    
